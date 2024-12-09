@@ -1,0 +1,182 @@
+/* Custom old display green color */
+:root {
+  --green-accent: #00ff00;
+}
+
+/* Blinking underscore cursor */
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.blinking-underscore::placeholder {
+  animation: blink 1s infinite ease-in-out;
+}
+
+/* Hide scrollbar while keeping scroll functionality */
+#playground {
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+#playground::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari, Edge */
+}
+
+/* Cyberpunk font */
+body {
+  font-family: "Orbitron", sans-serif;
+  text-transform: uppercase;
+}
+
+/* CRT Spawn Animation */
+@keyframes crtSpawn {
+  0% {
+    opacity: 0;
+    transform: scaleY(0.1);
+  }
+  20% {
+    opacity: 1;
+    transform: scaleY(1.5);
+  }
+  40% {
+    transform: scaleY(0.8);
+  }
+  60% {
+    transform: scaleY(1.2);
+  }
+  80% {
+    transform: scaleY(0.95);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+/* CRT Despawn Animation */
+@keyframes crtDespawn {
+  0% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+  20% {
+    transform: scaleY(0.9);
+  }
+  40% {
+    opacity: 0.8;
+    transform: scaleY(1.5);
+  }
+  60% {
+    opacity: 0.5;
+    transform: scaleY(0.2);
+  }
+  100% {
+    opacity: 0;
+    transform: scaleY(0.05);
+  }
+}
+
+/* Spawn and Despawn Classes */
+.crt-spawn {
+  animation: crtSpawn 0.6s ease-out forwards;
+}
+
+.crt-despawn {
+  animation: crtDespawn 0.6s ease-in forwards;
+}
+
+/* Apply CRT Effect */
+.crt-effect {
+  position: relative;
+  overflow: hidden; /* Prevent pseudo-elements from spilling out */
+  background-color: black;
+  border: 2px solid var(--green-accent);
+  filter: contrast(1.2) brightness(1.1);
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.5); /* Outer glow */
+}
+
+/* Pseudo-element for scanlines */
+.crt-effect::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.2) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  pointer-events: none; /* Ensure interactivity is not affected */
+  z-index: 1;
+}
+
+/* Curved screen effect */
+.crt-effect::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.3) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 2;
+  mix-blend-mode: multiply;
+}
+
+/* Terminal Styling */
+/* Terminal Styling */
+#terminal {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  .prompt {
+    display: flex;
+    align-items: center;
+  }
+
+  .cursor {
+    display: inline-block;
+    width: 8px;
+    height: 1rem;
+    background-color: var(--green-accent, #00ff00);
+    margin-left: 2px;
+    animation: blink 0.8s step-end infinite;
+  }
+
+  /* Blinking Cursor */
+  @keyframes blink {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+
+  /* Log Styles */
+  .stdout {
+    color: #00ff00; /* Green for standard output */
+  }
+
+  .console-warn {
+    color: #ffcc00; /* Yellow for warnings */
+  }
+
+  .console-error {
+    color: #ff3333; /* Red for errors */
+  }
