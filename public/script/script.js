@@ -80,7 +80,7 @@ function initTerminal() {
 }
 
 // Initialize the simulation when the DOM is loaded
-document.addEventListener("DOMContentLoaded", initTerminal);
+// document.addEventListener("DOMContentLoaded", initTerminal);
 
 /**
  * Module to manage input field behavior with API integration.

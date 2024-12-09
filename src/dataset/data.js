@@ -74,12 +74,74 @@ export const data = {
 };
 
 export const templates = {
-  textBlock: "",
-  textBlockWithImage: "",
-  table: "",
-  console: "",
-  textBlock: "",
-  textBlock: "",
+  textBlock: {
+    description: "",
+    template: `<!-- text block -->
+            <div
+                class="p-4 border border-green-500 text-green-500 bg-black font-mono mt-6 mb-6 shadow-[0_0_10px_2px_rgba(0,255,0,0.5)] crt-spawn">
+                <h2 class="text-xl font-bold mb-2">Block Title</h2>
+                <p>Data Line 1: <span class="font-bold">Value 1</span></p>
+                <p>Data Line 2: <span class="font-bold">Value 2</span></p>
+                <p>Data Line 3: <span class="font-bold">Value 3</span></p>
+            </div>`,
+  },
+  textBlockWithImage: {
+    description: { description: "", template: `` },
+    template: `<!-- text block with image -->
+            <div
+                class="p-4 border border-green-500 text-green-500 bg-black font-mono mt-6 mb-6 shadow-[0_0_10px_2px_rgba(0,255,0,0.5)]">
+                <div class="flex items-center flex-row-reverse">
+                    <!-- Image Container -->
+                    <div class="image-container w-32 h-32 flex-shrink-0 mx-4">
+                        <img src="https://via.placeholder.com/120x120" alt="Placeholder Image"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <!-- Text Content -->
+                    <div class="flex-1">
+                        <h2 class="text-xl font-bold mb-2">Block Title</h2>
+                        <p>Data Line 1: <span class="font-bold">Value 1</span></p>
+                        <p>Data Line 2: <span class="font-bold">Value 2</span></p>
+                        <p>Data Line 3: <span class="font-bold">Value 3</span></p>
+                    </div>
+                </div>
+            </div>`,
+  },
+  table: { description: "", template: `<div
+                class="p-4 border border-green-500 text-green-500 bg-black font-mono mt-6 mb-6 shadow-[0_0_10px_2px_rgba(0,255,0,0.5)]">
+                <table class="w-full border-collapse">
+                    <thead>
+                        <tr class="border-b border-green-500">
+                            <th class="text-left px-2 py-1">Field</th>
+                            <th class="text-left px-2 py-1">Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="px-2 py-1">Name</td>
+                            <td class="px-2 py-1 font-bold">Neo</td>
+                        </tr>
+                        <tr>
+                            <td class="px-2 py-1">Level</td>
+                            <td class="px-2 py-1 font-bold">42</td>
+                        </tr>
+                        <tr>
+                            <td class="px-2 py-1">Status</td>
+                            <td class="px-2 py-1 font-bold">Hacker</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>` },
+  console: { description: "", template: `` },
+  terminal: {
+    description: "",
+    template: `<!-- terminal template -->
+            <div id="terminal"
+                class="p-4 border border-green-500 text-green-500 bg-black font-mono mt-6 mb-6 overflow-y-auto max-h-96 shadow-[0_0_10px_2px_rgba(0,255,0,0.5)]">
+                <p class="prompt">&gt; <span id="command"></span><span class="cursor">|</span></p>
+                <div id="output"></div>
+            </div>`,
+  },
+  textBlock: { description: "", template: `` },
 };
 
 export const images = {
